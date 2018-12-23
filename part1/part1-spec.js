@@ -6,8 +6,8 @@ describe('The Bank - Part 1', () => {
     });
 
     it('Has Customer, Account, and Money classes', () => {
-        const customer = new customer();
-        const account = new account();
+        const customer = new Customer();
+        const account = new Account();
         const money = new Money();
 
         expect(typeof customer).toBe('object');

@@ -30,9 +30,9 @@ describe('The Bank - Part 1', () => {
         expect(customer.Secret).toBe(undefined);
 
         // Instead we can check if the password matches
-        expect(customer.IsPassword("secret").toBe(true));
+        expect(customer.IsPassword("secret")).toBe(true);
         
-        expect(customer.IsPassword("nothispassword").toBe(false));
+        expect(customer.IsPassword("nothispassword")).toBe(false);
     });
 
     it('Allows us to get a customer from the bank with an Id', () => {
@@ -57,14 +57,4 @@ describe('The Bank - Part 1', () => {
         expect(bank.FindCustomerById(1).Name).toBe("John Smith");
         expect(bank.FindCustomerById(2).IsPassword("potato")).toBe(true);
     });
-
-    it('Does not return the customer objects we put it', () => {
-        const bank = new Bank();
-
-        const john = bank.CreateCustomer("John Smith", "secret");
-
-        // Modifying this object shouldn't modify the bank's data
-        john.Name = "Hacker Stan";
-        expect(bank.FindCustomerById(1).Name).toBe("John Smith");
-    })
 });
